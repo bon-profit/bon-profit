@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom Markers</title>
+    <meta charset="utf-8">
+    <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 13,
+          center: new google.maps.LatLng(41.389410, 2.164202),
+          mapTypeId: 'roadmap'
+        });
+        var iconBase = 'http://maps.google.com/mapfiles/kml/pal2/';
+        var icons = {
+          rest: {
+            icon: iconBase + 'icon32.png'
+          }
+        };
+
+        var features = [
+			{ position: new google.maps.LatLng(41.405169, 2.174588), type: 'rest',content: '<div><h2>La Carreta</h2><h3>Spanish Mediterranean</h3><span>Ave. Gaudi 8, 08025 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.402276, 2.175632), type: 'rest',content: '<div><h2>Cantina Mexicana</h2><h3>Mexican</h3><span>Valencia 427, 08013 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.391297, 2.151989), type: 'rest',content: '<div><h2>Sindur</h2><h3>Indian Asiatic</h3><span>Còrsega 211-bis, 08036 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.388199, 2.155063), type: 'rest',content: '<div><h2>O\'Retorno</h2><h3>Spanish Mediterranean</h3><span>Mallorca, 08036 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.402771, 2.162905), type: 'rest',content: '<div><h2>Kaguya-Hime</h2><h3>Japanese Sushi Asiatic</h3><span>Bailen 221, 08012 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.382881, 2.146022), type: 'rest',content: '<div><h2>Azul</h2><h3>Spanish Mediterranean</h3><span>Calle de Provenza, 54 08029, 08029 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.391136, 2.154858), type: 'rest',content: '<div><h2>Origen 99</h2><h3>Spanish Mediterranean</h3><span>Rossello 154, 08036 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.386823, 2.1738), type: 'rest',content: '<div><h2>Tlaxcal</h2><h3>Mexican</h3><span>Comercio 27, 08003 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.36773, 2.15772), type: 'rest',content: '<div><h2>La Font del Gat</h2><h3>Spanish Mediterranean</h3><span>P. Santa Madrona 28, 08038 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.380498, 2.175091), type: 'rest',content: '<div><h2>Les Quinze Nits</h2><h3>Spanish Mediterranean</h3><span>Plaza Real, 6, 08002 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.40298, 2.15358), type: 'rest',content: '<div><h2>La Macchina</h2><h3>Italian Pizza Pasta</h3><span>Astúries, 17, 08012 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.392906, 2.170575), type: 'rest',content: '<div><h2>Wok & Bol</h2><h3>Chinese Asiatic</h3><span>Diputacio, 294, 08009 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.429881, 2.219558), type: 'rest',content: '<div><h2>Pulpero de Lugo</h2><h3>Spanish Mediterranean</h3><span>Calle Maragall 9, 08930 Sant Adrià de Besòs, España</span></div>' },
+			{ position: new google.maps.LatLng(41.383779, 2.180054), type: 'rest',content: '<div><h2>Senyor Parellada</h2><h3>Spanish Mediterranean</h3><span>Carrer Argenteria 37, 08023 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.411335, 2.173162), type: 'rest',content: '<div><h2>BelleBuon</h2><h3>Italian Pizza Pasta</h3><span>Travessera de Gracia, 441, 08025 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.404879, 2.155835), type: 'rest',content: '<div><h2>Kibuka</h2><h3>Japanese Sushi Asiatic</h3><span>Calle Verdi, 64, 08012 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.430001, 2.161187), type: 'rest',content: '<div><h2>A Tavola</h2><h3>Italian Pizza Pasta</h3><span>Plaça Eivissa, 2, 08032 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.429798, 2.162455), type: 'rest',content: '<div><h2>Txetxu Taverna</h2><h3>Spanish Mediterranean</h3><span>Tajo, 29, 08031 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.375567, 2.163469), type: 'rest',content: '<div><h2>Koh-i-noor india</h2><h3>Indian</h3><span>Carrer del Marques de Campo Sagrado, 3, 08015 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.379832, 2.176298), type: 'rest',content: '<div><h2>Viana</h2><h3>Spanish Mediterranean</h3><span>Carrer del Vidre, 7, 08002 Barcelona, España</span></div>' },
+			{ position: new google.maps.LatLng(41.388382, 2.16047), type: 'rest',content: '<div><h2>L\'Olla de Si Chuan</h2><h3>Chinese Asiatic</h3><span>Carrer d\'Aragó, 224, 08011 Barcelona, España</span></div>' }
+		];
+        // Create markers.
+        features.forEach(function(feature) {
+          var marker = new google.maps.Marker({
+            position: feature.position,
+            icon: icons[feature.type].icon,
+            map: map
+          });
+          var infowindow = new google.maps.InfoWindow({
+            content: feature.content
+          });
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAE0l_9LzDsL_GXTnj2RTSBbLCGnYy8_-w&callback=initMap">
+    </script>
+  </body>
+</html>
